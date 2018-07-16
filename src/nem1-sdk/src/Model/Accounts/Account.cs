@@ -23,7 +23,6 @@
 // <summary></summary>
 // ***********************************************************************
 
-
 using System.Security.Cryptography;
 using io.nem1.sdk.Core.Crypto.Chaso.NaCl;
 using io.nem1.sdk.Model.Blockchain;
