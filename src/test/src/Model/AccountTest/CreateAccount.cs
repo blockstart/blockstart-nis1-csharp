@@ -2,7 +2,7 @@
 using io.nem1.sdk.Model.Blockchain;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace test.Model.AccountTest
+namespace Tests.Model.AccountTest
 {
     [TestClass]
     public class CreateAccount

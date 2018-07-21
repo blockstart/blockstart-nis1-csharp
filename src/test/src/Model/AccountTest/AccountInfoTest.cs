@@ -15,7 +15,7 @@
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace test.Model.AccountTest
+namespace Tests.Model.AccountTest
 {
     /// <summary>
     /// Summary description for AccountInfoTest

@@ -1,13 +1,10 @@
-﻿using System;
-using System.Linq;
-using System.Text;
-using io.nem1.sdk.Core.Crypto;
+﻿using io.nem1.sdk.Core.Crypto;
 using io.nem1.sdk.Core.Crypto.Chaso.NaCl;
 using io.nem1.sdk.Model.Transactions;
 using io.nem1.sdk.Model.Wallet;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace test.Crypto
+namespace Tests.Crypto
 {
     [TestClass]
     public class CryptoUtilsTests

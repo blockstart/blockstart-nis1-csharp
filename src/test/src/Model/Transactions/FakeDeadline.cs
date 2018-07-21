@@ -1,7 +1,7 @@
 ﻿using System;
 using io.nem1.sdk.Model.Transactions;
 
-namespace test.Model.Transactions
+namespace Tests.Model.Transactions
 {
     public class FakeDeadline : Deadline
     {

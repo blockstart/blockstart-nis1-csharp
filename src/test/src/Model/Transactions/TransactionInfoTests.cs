@@ -23,12 +23,10 @@
 // <summary></summary>
 // ***********************************************************************
 
-using System.Collections.Generic;
 using io.nem1.sdk.Model.Transactions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Newtonsoft.Json;
 
-namespace test.Model.Transactions
+namespace Tests.Model.Transactions
 {
     [TestClass]
     public class TransactionInfoTests

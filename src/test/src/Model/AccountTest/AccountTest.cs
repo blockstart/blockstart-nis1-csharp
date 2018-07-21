@@ -13,13 +13,13 @@
 // limitations under the License.
 // 
 
-using io.nem1.sdk.Core.Crypto.Chaso.NaCl;
 using io.nem1.sdk.Model.Accounts;
 using io.nem1.sdk.Model.Blockchain;
 using io.nem1.sdk.Model.Transactions;
+using io.nem1.sdk.Core.Crypto.Chaso.NaCl;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace test.Model.AccountTest
+namespace Tests.Model.AccountTest
 {
     [TestClass]
     public class AccountTest

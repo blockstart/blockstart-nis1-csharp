@@ -266,8 +266,10 @@ namespace io.nem1.sdk.Model.Transactions
                      }
                  }
              });
-
-           return Fee += ((ulong)(50000 * (Math.Floor(((double)Message.GetLength() / 32)) + 1)));
+            
+            return Fee += Message.GetLength() > 0
+                ? 50000 * (ulong)Math.Floor((double)Message.GetLength() / 32 + 1)
+                : 0;
         }
     }  
 }

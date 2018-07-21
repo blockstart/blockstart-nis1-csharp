@@ -1,7 +1,7 @@
 ﻿using io.nem1.sdk.Model.Mosaics;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace test.Model.MosaicsTests
+namespace Tests.Model.MosaicsTests
 {
     [TestClass]
     public class MosaicIdTest

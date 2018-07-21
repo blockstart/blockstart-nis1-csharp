@@ -13,6 +13,7 @@
 // limitations under the License.
 // 
 
+using System;
 using System.Collections.Generic;
 using System.Reactive.Linq;
 using System.Threading.Tasks;
@@ -37,13 +38,14 @@ namespace IntegrationTest.infrastructure.Transactions
             TransferTransaction transaction = TransferTransaction.Create(
                 NetworkType.Types.TEST_NET,
                 Deadline.CreateHours(2),
-                Address.CreateFromEncoded("TAVPDJ-DR3R3X-4FJUKN-PY2IQB-NNRFV2-QR5NJZ-J3WR"),
-                new List<Mosaic> {Mosaic.CreateFromIdentifier("nem:xem", 1000000)},
-                PlainMessage.Create("hello")
+                Address.CreateFromEncoded("TACOPE-XRLZTU-WBQA3U-XV66R4-55L76E-NWK6OY-ITBJ"),
+                new List<Mosaic> {Mosaic.CreateFromIdentifier("nem:xem", 1)},
+                EmptyMessage.Create()
             );
 
             SignedTransaction signedTransaction = transaction.SignWith(keyPair);
-
+            Console.WriteLine(signedTransaction.Hash);
+            Console.WriteLine(transaction.Fee);
             TransactionResponse response = await new TransactionHttp("http://" + Config.Domain + ":7890").Announce(signedTransaction);
            
             Assert.AreEqual("SUCCESS", response.Message);

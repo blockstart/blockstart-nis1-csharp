@@ -13,11 +13,10 @@
 // limitations under the License.
 // 
 
-using System;
 using io.nem1.sdk.Model.Transactions.Messages;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace test.Model.Transactions
+namespace Tests.Model.Transactions
 {
     [TestClass]
     public class MessageTests

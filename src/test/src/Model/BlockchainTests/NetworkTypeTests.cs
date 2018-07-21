@@ -16,7 +16,7 @@
 using io.nem1.sdk.Model.Blockchain;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace test.Model.BlockchainTests
+namespace Tests.Model.BlockchainTests
 {
     [TestClass]
     public class NetworkTypeTests

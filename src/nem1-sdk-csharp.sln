@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.27004.2002
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntegrationTest", "integration-test\IntegrationTest.csproj", "{E8D81EEF-ADCB-4C77-9304-F163AF4FC898}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "test", "test\test.csproj", "{2108F179-FEAB-4E44-9EBF-91A366679A5F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tests", "test\Tests.csproj", "{2108F179-FEAB-4E44-9EBF-91A366679A5F}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "io.nem1.sdk", "nem1-sdk\io.nem1.sdk.csproj", "{59C26C09-7330-4F8D-9C53-69E2A0B8D31D}"
 EndProject

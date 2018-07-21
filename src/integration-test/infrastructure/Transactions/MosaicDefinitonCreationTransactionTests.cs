@@ -9,7 +9,7 @@ using io.nem1.sdk.Model.Blockchain;
 using io.nem1.sdk.Model.Mosaics;
 using io.nem1.sdk.Model.Transactions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using MosaicProperties = io.nem1.sdk.Model.Transactions.MosaicProperties;
+
 
 namespace IntegrationTest.infrastructure.Transactions
 {

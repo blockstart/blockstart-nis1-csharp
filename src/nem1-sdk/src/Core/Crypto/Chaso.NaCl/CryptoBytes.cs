@@ -2,7 +2,7 @@
 using System.Runtime.CompilerServices;
 
 [assembly: InternalsVisibleTo("IntegrationTest")]
-[assembly: InternalsVisibleTo("test")]
+[assembly: InternalsVisibleTo("Tests")]
 namespace io.nem1.sdk.Core.Crypto.Chaso.NaCl
 {
     internal static class CryptoBytes

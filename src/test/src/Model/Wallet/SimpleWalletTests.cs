@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using io.nem1.sdk.Model.Blockchain;
+﻿using io.nem1.sdk.Model.Blockchain;
 using io.nem1.sdk.Model.Wallet;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace test.src.Model.Wallet
+namespace Tests.Model.Wallet
 {
     [TestClass]
     public class SimpleWalletTests

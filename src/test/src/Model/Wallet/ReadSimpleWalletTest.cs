@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
+﻿using System.Text;
 using System.Text.RegularExpressions;
 using io.nem1.sdk.Model.Wallet;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Newtonsoft.Json;
-using test.src.Model.Wallet;
 
-namespace test.src
+namespace Tests.Model.Wallet
 {
     [TestClass]
     public class ReadSimpleWalletTest
