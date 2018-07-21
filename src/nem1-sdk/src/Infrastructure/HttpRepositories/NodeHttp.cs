@@ -122,7 +122,7 @@ namespace io.nem1.sdk.Infrastructure.HttpRepositories
         {
             return Observable.FromAsync(async ar => await NodeRoutesApi.ExtendedNodeInfoAsync()).Select(i =>
                 new ExtendedNodeInfo(
-                    new NodeInfoMapping().MapNode(i),
+                    new NodeInfoMapping().MapNode(i["node"]),
                     new NisInfo(
                         ulong.Parse(i["nisInfo"]["currentTime"].ToString()),
                         i["nisInfo"]["application"].ToString(),

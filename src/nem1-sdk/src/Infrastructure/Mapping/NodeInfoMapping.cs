@@ -14,7 +14,7 @@ namespace io.nem1.sdk.Infrastructure.Mapping
             return nodes.Select(MapNode).ToList();
         }
 
-        internal NodeInfo MapNode(JObject i)
+        internal NodeInfo MapNode(JToken i)
         {
             return new NodeInfo(
                 int.Parse(i["metaData"]["features"].ToString()),
