@@ -5,6 +5,10 @@
 
 See [!here](https://docs.microsoft.com/en-us/dotnet/standard/net-standard) for platform compatibility
 
+## Installation
+
+> Install-package io.nem1.sdk
+
 ## Documentation and Getting Started
 
 Coming soon.
