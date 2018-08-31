@@ -1,18 +1,18 @@
 <Project Sdk="Microsoft.NET.Sdk" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFrameworks>netstandard2.0;net461</TargetFrameworks>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Authors>Kailin O'Donnell</Authors>
     <Company>Nem.io</Company>
-    <RepositoryUrl>https://github.com/nemtech/nem2-sdk-csharp</RepositoryUrl>
-    <PackageProjectUrl>https://github.com/nemtech/nem2-sdk-csharp</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/NemProject/nem1-sdk-csharp</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/NemProject/nem1-sdk-csharp</PackageProjectUrl>
     <Copyright>Nem.io</Copyright>
-    <AssemblyVersion>0.8.0</AssemblyVersion>
-    <FileVersion>0.8.0</FileVersion>
-    <Version>0.8.0</Version>
+    <AssemblyVersion>1.0.4</AssemblyVersion>
+    <FileVersion>1.0.4</FileVersion>
+    <Version>1.0.4</Version>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <description>Official sdk for nem2, aka Catapult.</description>
+    <description>Official sdk for nem.</description>
   </PropertyGroup>
 
   <ItemGroup>
@@ -34,11 +34,16 @@
       <HintPath>..\..\..\..\..\..\..\Windows\Microsoft.NET\assembly\GAC_MSIL\Microsoft.CSharp\v4.0_4.0.0.0__b03f5f7f11d50a3a\Microsoft.CSharp.dll</HintPath>
     </Reference>
   </ItemGroup>
-
+  
   <ItemGroup>
-    <None Update="App.config">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </None>
+    <Content Include="App.config">
+      <Pack>true</Pack>
+      <PackagePath>lib\netstandard2.0\io.nem1.sdk.dll.config</PackagePath>
+    </Content>
+    <Content Include="App.config">
+      <Pack>true</Pack>
+      <PackagePath>lib\net461\io.nem1.sdk.dll.config</PackagePath>
+    </Content>
   </ItemGroup>
 
 </Project>

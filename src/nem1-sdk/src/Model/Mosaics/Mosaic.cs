@@ -49,7 +49,7 @@ namespace io.nem1.sdk.Model.Mosaics
         /// Gets the amount.
         /// </summary>
         /// <value>The amount.</value>
-        public ulong Amount { get; }
+        public ulong Amount { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Mosaic"/> class.

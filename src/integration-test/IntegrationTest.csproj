@@ -16,6 +16,6 @@
     <ProjectReference Include="..\nem1-sdk\io.nem1.sdk.csproj" />
   </ItemGroup>
 
-
+  
   
 </Project>
