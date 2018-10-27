@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27004.2002
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntegrationTest", "integration-test\IntegrationTest.csproj", "{E8D81EEF-ADCB-4C77-9304-F163AF4FC898}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntegrationTest", "integration-test\IntegrationTest.csproj", "{E8D81EEF-ADCB-4C77-9304-F163AF4FC898}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tests", "test\Tests.csproj", "{2108F179-FEAB-4E44-9EBF-91A366679A5F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "test\Tests.csproj", "{2108F179-FEAB-4E44-9EBF-91A366679A5F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "io.nem1.sdk", "nem1-sdk\io.nem1.sdk.csproj", "{59C26C09-7330-4F8D-9C53-69E2A0B8D31D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "io.nem1.sdk", "nem1-sdk\io.nem1.sdk.csproj", "{59C26C09-7330-4F8D-9C53-69E2A0B8D31D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,8 +23,8 @@ Global
 		{2108F179-FEAB-4E44-9EBF-91A366679A5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2108F179-FEAB-4E44-9EBF-91A366679A5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2108F179-FEAB-4E44-9EBF-91A366679A5F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{59C26C09-7330-4F8D-9C53-69E2A0B8D31D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{59C26C09-7330-4F8D-9C53-69E2A0B8D31D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59C26C09-7330-4F8D-9C53-69E2A0B8D31D}.Debug|Any CPU.ActiveCfg = Release|Any CPU
+		{59C26C09-7330-4F8D-9C53-69E2A0B8D31D}.Debug|Any CPU.Build.0 = Release|Any CPU
 		{59C26C09-7330-4F8D-9C53-69E2A0B8D31D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{59C26C09-7330-4F8D-9C53-69E2A0B8D31D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
@@ -33,5 +33,15 @@ Global
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {16945026-1CA2-48BE-B7C8-4D267E2D96DD}
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		Policies = $0
+		$0.DotNetNamingPolicy = $1
+		$1.DirectoryNamespaceAssociation = PrefixedHierarchical
+		$0.TextStylePolicy = $2
+		$2.inheritsSet = null
+		$2.scope = text/x-csharp
+		$0.CSharpFormattingPolicy = $3
+		$3.scope = text/x-csharp
 	EndGlobalSection
 EndGlobal

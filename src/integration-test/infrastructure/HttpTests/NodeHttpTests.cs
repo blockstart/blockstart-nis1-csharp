@@ -78,7 +78,7 @@ namespace IntegrationTest.infrastructure.HttpTests
         public async Task GetNodeListAll() // figure out why only the queried node meta data comes back as nulls/0's
         {
             var nodeHttp = await new NodeHttp(host).GetNodePeerListAll();
-            //Assert.IsTrue(nodeHttp.Active[0].Network == NetworkType.Types.TEST_NET);
+            Assert.IsTrue(nodeHttp.Active[0].Network == NetworkType.Types.TEST_NET);
         }
 
         [TestMethod]
@@ -86,14 +86,14 @@ namespace IntegrationTest.infrastructure.HttpTests
         {
             var nodeHttp = await new NodeHttp(host).GetNodeInfo();
 
-            Assert.AreEqual("104.128.226.60", nodeHttp.Host);
+            Assert.AreEqual("23.228.67.85", nodeHttp.Host);
             Assert.AreEqual("", nodeHttp.Application);
-            Assert.AreEqual("Hi, I am BigAlice2", nodeHttp.Name);
+            Assert.AreEqual("Hi, I am MedAlice2", nodeHttp.Name);
             Assert.AreEqual(NetworkType.Types.TEST_NET, nodeHttp.Network);
-            Assert.AreEqual("Oracle Corporation (1.8.0_40) on Linux", nodeHttp.Platform);
+            Assert.AreEqual("Oracle Corporation (1.8.0_66) on Linux", nodeHttp.Platform);
             Assert.AreEqual("7890", nodeHttp.Port);
             Assert.AreEqual("http", nodeHttp.Protocol);
-            Assert.AreEqual("147eb3e4fccb655c03f4b6b12fc145f6a740c9334a8f3c59131dffd1fd42a996", nodeHttp.PublicKey);
+            Assert.AreEqual("0d57583239ee7bcbd649524332e0bac6b7e82bf48676c73ae6c4dd01d70ec1af", nodeHttp.PublicKey);
 
         }
     }

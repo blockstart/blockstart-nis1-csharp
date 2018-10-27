@@ -19,6 +19,7 @@
     <Compile Remove="src\sdk\**" />
     <EmbeddedResource Remove="src\sdk\**" />
     <None Remove="src\sdk\**" />
+    <None Remove="App.config" />
   </ItemGroup>
 
   <ItemGroup>
@@ -37,10 +38,6 @@
   </ItemGroup>
   
   <ItemGroup>
-    <Content Include="App.config">
-      <Pack>true</Pack>
-      <PackagePath>lib\netstandard2.0\io.nem1.sdk.dll.config</PackagePath>
-    </Content>
     <Content Include="App.config">
       <Pack>true</Pack>
       <PackagePath>lib\net461\io.nem1.sdk.dll.config</PackagePath>
