@@ -43,6 +43,7 @@ namespace IntegrationTest.infrastructure.HttpTests
             Assert.AreEqual("test", mosaics[0].Description);
             Assert.AreEqual(2853, mosaics[0].Id);
             Assert.AreEqual("testlevy:nis1porttest", mosaics[0].MosaicId.FullName);
+            Assert.AreEqual(6, mosaics[0].Properties.Divisibility);
             Assert.IsTrue(mosaics[0].Properties.Mutable);
             Assert.IsTrue(mosaics[0].Properties.Transferable);
         }

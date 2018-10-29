@@ -39,7 +39,7 @@ namespace IntegrationTest.infrastructure.HttpTests
             var expected = "TACOPEXRLZTUWBQA3UXV66R455L76ENWK6OYITBJ";
 
             var response = await new AccountHttp(host).GetAccountInfo(new PublicAccount("856f39436e33129afff95b89aca998fa23cd751a6f4d79ce4fb9da9641ecb59c", NetworkType.Types.TEST_NET));
-            
+
             Assert.AreEqual(expected, response.Address.Plain);
             Assert.AreEqual("TACOPE-XRLZTU-WBQA3U-XV66R4-55L76E-NWK6OY-ITBJ", response.Address.Pretty);
             Assert.AreEqual((ulong)0, response.HarvestedBlocks);
@@ -94,7 +94,7 @@ namespace IntegrationTest.infrastructure.HttpTests
             Assert.AreEqual("ZXCVBN", ((SecureMessage)tx.Message).GetDecodedPayload("523b0b58512cba0da5e8d4fa829e241326cd126bad22a5055a8cb39fdcd1bc00", "57786d3560ae151ec9790c73713379524700bc6a2b34888b26b736c35c8c5e14"));
             Assert.AreEqual(expected, tx.Signer.PublicKey);
             Assert.AreEqual("664dccae0a45c03ae83c4ebe42e64cb4a8efbc897a3cb8421a19b1978c48a7b8", tx.TransactionInfo.Hash);
-            
+
         }
 
         [TestMethod]
@@ -123,15 +123,15 @@ namespace IntegrationTest.infrastructure.HttpTests
 
             Assert.AreEqual("2ec51d4e2e0a11cd6d3747848e272c51bae213ebfb4d2912b2cb6a8d86d36f86", response[0].TransactionInfo.Hash);
             Assert.AreEqual((ulong)1503213, response[0].TransactionInfo.Height);
-            Assert.AreEqual(230330, response[0].TransactionInfo.Id);
+            Assert.AreEqual(226994, response[0].TransactionInfo.Id);
             Assert.AreEqual("9d7ea57169a56a1bb821e1abf744610c639d7545f976f09808b68a6ad1415eb0", response[0].Signer.PublicKey);
             Assert.AreEqual((ulong)150000, response[0].Fee);
 
-            var tx = (TransferTransaction) ((MultisigTransaction)response[0]).InnerTransaction;
+            var tx = (TransferTransaction)((MultisigTransaction)response[0]).InnerTransaction;
 
             Assert.IsNotNull(tx.Address.Plain);
             Assert.IsNotNull(tx.Mosaics);
-            
+
         }
 
         [TestMethod, Timeout(20000)]
@@ -140,13 +140,13 @@ namespace IntegrationTest.infrastructure.HttpTests
             var expected = "9d7ea57169a56a1bb821e1abf744610c639d7545f976f09808b68a6ad1415eb0";
 
             var response = await new AccountHttp(host).OutgoingTransactions(new PublicAccount("eb100d6b2da10fc5359ab35a5801b0e6f0b6cc18d849c0aa78ba1aab2b945dea", NetworkType.Types.TEST_NET));
-            
-          
+
+
             var tx = (MultisigTransaction)response[5];
             Assert.AreEqual(((TransferTransaction)tx.InnerTransaction).Mosaics[0].MosaicName, Xem.MosaicName);
             Assert.AreEqual(expected, tx.Signer.PublicKey);
             Assert.AreEqual("b41462f6b28bd8446f45fd90b6bda6d8eb33174b7b0c168b618d63472a815fd2", tx.TransactionInfo.InnerHash);
-                 
+
         }
 
         [TestMethod, Timeout(20000)]
@@ -155,7 +155,7 @@ namespace IntegrationTest.infrastructure.HttpTests
             var expected = "9d7ea57169a56a1bb821e1abf744610c639d7545f976f09808b68a6ad1415eb0";
 
             var response = await new AccountHttp(host).OutgoingTransactions(new PublicAccount("eb100d6b2da10fc5359ab35a5801b0e6f0b6cc18d849c0aa78ba1aab2b945dea", NetworkType.Types.TEST_NET));
-           
+
             var tx = (MultisigTransaction)response[4];
             Assert.AreEqual(((ImportanceTransferTransaction)tx.InnerTransaction).Mode.GetValue(), 1);
             Assert.AreEqual(((ImportanceTransferTransaction)tx.InnerTransaction).TransactionInfo, null);
@@ -171,13 +171,13 @@ namespace IntegrationTest.infrastructure.HttpTests
 
             var response = await new AccountHttp(host)
                 .Transactions(new PublicAccount(
-                    "29c4a4aa674953749053c8a35399b37b713dedd5d002cb29b3331e56ff1ea65a", 
+                    "29c4a4aa674953749053c8a35399b37b713dedd5d002cb29b3331e56ff1ea65a",
                     NetworkType.Types.TEST_NET));
 
             Assert.IsTrue(response[0].Deadline.Ticks > response[0].TransactionInfo.TimeStamp);
             Assert.AreEqual(expected, response[0].Signer.PublicKey);
             Assert.AreEqual(Address.CreateFromEncoded("TATFWN33FARG365IXE3CSKQI7KZZA4OJAVFSZ66D").Plain, Address.CreateFromPublicKey(response[0].Signer.PublicKey, NetworkType.Types.TEST_NET).Plain);
-                               
+
         }
     }
 }
