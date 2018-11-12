@@ -66,9 +66,7 @@ namespace io.nem1.sdk.Model.Transactions
         public Deadline(int timespan, ulong nodeTime)
         {
             EpochDate = new DateTime(2015, 03, 29, 0, 6, 25, 0);
-            
             var deadline = (int)(nodeTime + TimeSpan.FromHours(timespan).TotalSeconds);
-
             Ticks = deadline;
         }
 
