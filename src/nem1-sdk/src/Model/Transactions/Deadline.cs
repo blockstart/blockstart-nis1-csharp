@@ -51,12 +51,25 @@ namespace io.nem1.sdk.Model.Transactions
         public Deadline(TimeSpan time)
         {
             EpochDate = new DateTime(2015, 03, 29, 0, 6, 25, 0);
-
             var now = DateTime.UtcNow;
 
             var deadline = now - EpochDate;
 
             Ticks = (int)deadline.Add(time).TotalSeconds;
+        }
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="timespan">deadline for tx</param>
+        /// <param name="nodeTime">Node current time</param>
+        public Deadline(int timespan, ulong nodeTime)
+        {
+            EpochDate = new DateTime(2015, 03, 29, 0, 6, 25, 0);
+            
+            var deadline = (int)(nodeTime + TimeSpan.FromHours(timespan).TotalSeconds);
+
+            Ticks = deadline;
         }
 
         /// <summary>

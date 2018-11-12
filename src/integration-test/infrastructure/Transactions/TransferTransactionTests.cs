@@ -21,6 +21,7 @@ using io.nem1.sdk.Infrastructure.HttpRepositories;
 using io.nem1.sdk.Model.Accounts;
 using io.nem1.sdk.Model.Blockchain;
 using io.nem1.sdk.Model.Mosaics;
+using io.nem1.sdk.Model.Node;
 using io.nem1.sdk.Model.Transactions;
 using io.nem1.sdk.Model.Transactions.Messages;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -34,10 +35,11 @@ namespace IntegrationTest.infrastructure.Transactions
         public async Task AnnounceTransferTransactionWithMosaicWithMessage()
         {
             KeyPair keyPair = KeyPair.CreateFromPrivateKey(Config.PrivateKeyMain);
+            ExtendedNodeInfo nodeHttp = await new NodeHttp("http://" + Config.Domain + ":7890").GetExtendedNodeInfo();
       
             TransferTransaction transaction = TransferTransaction.Create(
                 NetworkType.Types.TEST_NET,
-                Deadline.CreateHours(2),
+                new Deadline(1, nodeHttp.NisInfo.CurrentTime),
                 Address.CreateFromEncoded("TACOPE-XRLZTU-WBQA3U-XV66R4-55L76E-NWK6OY-ITBJ"),
                 new List<Mosaic> {Mosaic.CreateFromIdentifier("nem:xem", 1)},
                 EmptyMessage.Create()
