@@ -61,7 +61,7 @@ namespace io.nem1.sdk.Model.Transactions
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="timespan">deadline for tx</param>
+        /// <param name="timespan">deadline for tx in hours</param>
         /// <param name="nodeTime">Node current time</param>
         public Deadline(int timespan, ulong nodeTime)
         {
