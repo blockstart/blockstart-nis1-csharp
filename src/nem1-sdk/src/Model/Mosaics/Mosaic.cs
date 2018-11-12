@@ -51,16 +51,23 @@ namespace io.nem1.sdk.Model.Mosaics
         /// <value>The amount.</value>
         public ulong Amount { get; set; }
 
+        public MosaicProperties Properties { get; set; }
+        
         /// <summary>
         /// Initializes a new instance of the <see cref="Mosaic"/> class.
         /// </summary>
         /// <param name="mosaicId">The identifier.</param>
         /// <param name="amount">The amount.</param>
-        public Mosaic(string namespaceId, string mosaicId, ulong amount)
+        /// <param name="properties">The properties object.</param>
+        public Mosaic(string namespaceId, string mosaicId, ulong amount, MosaicProperties properties = null)
         {
             MosaicName = mosaicId ?? throw new ArgumentNullException(nameof(mosaicId));
             NamespaceName = namespaceId ?? throw new ArgumentNullException(nameof(namespaceId));
             Amount = amount;
+            if (properties.Divisibility != null &&  properties.Transferable)
+            {
+                Properties = new MosaicProperties(properties.Divisibility, properties.InitialSupply, properties.Mutable, properties.Transferable);
+            }
         }
 
         /// <summary>
@@ -68,10 +75,11 @@ namespace io.nem1.sdk.Model.Mosaics
         /// </summary>
         /// <param name="identifier">The mosaic identifier. ex: nem:xem or test.namespace:token</param>
         /// <param name="amount">The mosaic amount.</param>
+        /// <param name="properties">The properties object.</param>
         /// <returns>A Mosaic instance</returns>
         /// <exception cref="System.ArgumentException">
         /// </exception>
-        public static Mosaic CreateFromIdentifier(string identifier, ulong amount)
+        public static Mosaic CreateFromIdentifier(string identifier, ulong amount, MosaicProperties properties = null)
         {
             if (string.IsNullOrEmpty(identifier)) throw new ArgumentException(identifier + " is not valid");
             if (!identifier.Contains(":")) throw new ArgumentException(identifier + " is not valid");
@@ -80,6 +88,10 @@ namespace io.nem1.sdk.Model.Mosaics
             if (parts[0] == "") throw new ArgumentException(identifier + " is not valid");
             
             if (parts[1] == "") throw new ArgumentException(identifier + " is not valid");
+            if (properties.Divisibility != null &&  properties.Transferable)
+            {
+                return new Mosaic(parts[0], parts[1], amount, new MosaicProperties(properties.Divisibility, properties.InitialSupply, properties.Mutable, properties.Transferable));
+            }
             
             return new Mosaic(parts[0], parts[1], amount);
         }

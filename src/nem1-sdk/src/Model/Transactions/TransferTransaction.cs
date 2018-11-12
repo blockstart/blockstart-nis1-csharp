@@ -215,8 +215,57 @@ namespace io.nem1.sdk.Model.Transactions
 
             return new TransferTransactionSchema().Serialize(builder.SizedByteArray());
         }
-
+        
         private ulong CalculateFee()
+        {
+            switch (NetworkType)
+            {
+                case Blockchain.NetworkType.Types.MIJIN:
+                    return 0;
+                case Blockchain.NetworkType.Types.MIJIN_TEST:
+                    return 0;
+            }
+
+             Mosaics.ForEach(mosaic =>
+             {
+                 var amount = mosaic.Amount;
+                 var divisibility = Convert.ToUInt32(mosaic.Properties.Divisibility);
+                 var initialSupply = Convert.ToUInt64(mosaic.Properties.InitialSupply);
+               
+                 if (initialSupply <= 10000 && divisibility == 0)
+                 {
+                     Fee += 1000000;
+                 }
+                 else
+                 {
+                     // get xem equivilent
+                     var xemEquivalent = 8999999999 * (amount / Math.Pow(10, divisibility)) / (initialSupply * 10 ^ divisibility) * 1000000;
+
+                     // apply xem transfer fee formula 
+                     var xemFee = Math.Max(1, Math.Min((long)Math.Ceiling((decimal)xemEquivalent / 1000000000), 25)) * 1000000;
+
+                     // Adjust fee based on supply
+                     const long maxMosaicQuantity = 9000000000000000;
+
+                     // get total mosaic quantity
+                     var totalMosaicQuantity = initialSupply * Math.Pow(10, divisibility);
+
+                     // get supply related adjustment
+                     var supplyRelatedAdjustment = Math.Floor(0.8 * Math.Log(maxMosaicQuantity / totalMosaicQuantity)) * 1000000;
+
+                     // get final individual mosaic fee
+                     var individualMosaicfee = (ulong)Math.Max(1000000, xemFee - supplyRelatedAdjustment);
+                     // add individual fee to total fee for all mosaics to be sent 
+                     Fee += individualMosaicfee / 20;
+                 }
+             });
+            
+            return Fee += Message.GetLength() > 0
+                ? 50000 * (ulong)Math.Floor((double)Message.GetLength() / 32 + 1)
+                : 0;
+        }
+
+        /*private ulong CalculateFee()
         {
             switch (NetworkType)
             {
@@ -235,7 +284,7 @@ namespace io.nem1.sdk.Model.Transactions
                          var q = m.Amount;
                          var d = Convert.ToUInt32(Config.Divisibility);
                          var s = Convert.ToUInt64(Config.InitialSupply);
-                         
+                       
                          if (s <= 10000 && d == 0)
                          {
                              Fee += 1000000;
@@ -259,7 +308,6 @@ namespace io.nem1.sdk.Model.Transactions
 
                              // get final individual mosaic fee
                              var individualMosaicfee = (ulong)Math.Max(1000000, xemFee - supplyRelatedAdjustment);
-
                              // add individual fee to total fee for all mosaics to be sent 
                              Fee += individualMosaicfee / 20;
                          }
@@ -270,6 +318,6 @@ namespace io.nem1.sdk.Model.Transactions
             return Fee += Message.GetLength() > 0
                 ? 50000 * (ulong)Math.Floor((double)Message.GetLength() / 32 + 1)
                 : 0;
-        }
+        }*/
     }  
 }

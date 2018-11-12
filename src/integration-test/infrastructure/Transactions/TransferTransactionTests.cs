@@ -40,8 +40,8 @@ namespace IntegrationTest.infrastructure.Transactions
             TransferTransaction transaction = TransferTransaction.Create(
                 NetworkType.Types.TEST_NET,
                 new Deadline(1, nodeHttp.NisInfo.CurrentTime),
-                Address.CreateFromEncoded("TACOPE-XRLZTU-WBQA3U-XV66R4-55L76E-NWK6OY-ITBJ"),
-                new List<Mosaic> {Mosaic.CreateFromIdentifier("nem:xem", 1)},
+                Address.CreateFromEncoded("TCXECVMH7XV6XERR7IBJX7RZTEAHPK6SOGRVGUCE"),
+                new List<Mosaic> {Mosaic.CreateFromIdentifier("cache:cache", 10, new MosaicProperties(6, 1000000000, false, true))},
                 EmptyMessage.Create()
             );
 
@@ -62,7 +62,7 @@ namespace IntegrationTest.infrastructure.Transactions
                 NetworkType.Types.TEST_NET,
                 Deadline.CreateHours(2),
                 Address.CreateFromEncoded("TAVPDJ-DR3R3X-4FJUKN-PY2IQB-NNRFV2-QR5NJZ-J3WR"),
-                new List<Mosaic> { Mosaic.CreateFromIdentifier("nem:xem", 10) },
+                new List<Mosaic> { Mosaic.CreateFromIdentifier("cache:cache", 10) },
                 SecureMessage.Create("hello2", Config.PrivateKeyMain, "4cc7409929a72019240065c9e53aa339f87ba889238ff9fbe978251fdbb05d9f")
             ).SignWith(keyPair);
       
